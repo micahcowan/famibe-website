@@ -6,6 +6,7 @@ html {
   font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 body {
+  background-color: #fed;
   position: relative;
 }
 body > * {
@@ -15,6 +16,9 @@ body > * {
 p {
   width: 36rem;
   line-height: 1.33em;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #800;
 }
 h1 {
   font-family: 'Comfortaa', cursive;
