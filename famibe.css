@@ -6,6 +6,7 @@ html {
   font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 body {
+  margin: 0;
   background-color: #fed;
   position: relative;
 }
@@ -23,11 +24,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-family: 'Comfortaa', cursive;
   text-align: center;
+  background-color: #ffe;
 }
 h1 {
   font-size: 3rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
 }
 h2 {
   font-size: 1.5rem;
