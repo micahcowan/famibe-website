@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans&display=swap);
+
+html {
+  position: relative;
+  /* font-family: 'Helvetica', sans-serif; */
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+}
+body {
+  position: relative;
+}
+body > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+p {
+  width: 36rem;
+  line-height: 1.33em;
+}
+h1 {
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+}
+h1 {
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  /* width: 40em; */
+  width: 38rem;
+  text-transform: uppercase;
+}
