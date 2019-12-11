@@ -1,0 +1,146 @@
+doctype html
+html
+  head
+    title Welcome to Family Basic!
+    link(rel="stylesheet" href="style/famibe.css")
+  body
+    h1 Welcome to Family Basic!
+    h2 What is Family Basic [Famibe]?
+    p.
+      Family Basic is an add-on for the Japanese Family Computer, or
+      “Famicom” (Japanese version of the NES), consisting of an
+      attachable keyboard, and a cartridge containing the BASIC
+      programming language, developed by Nintendo in Collaboration
+      with Sharp and Hudson (Family Basic identifies itself as
+      NS-HUBASIC at start-up).
+    p.
+      Maybe having BASIC and a keyboard entitles the Famicom to its
+      name of “Family Computer”?
+    p.
+      While language limitations, and very limited memory (2k or 4k,
+      including program listing and data) make Famibe poorly suited
+      for writing, say, a text adventure (as one might normally be
+      inclined to do with a BASIC programming environment), it
+      compensates with the ability to access the Famicom’s graphics
+      hardware to edit and display tiled background graphics, and
+      control animated sprites, which are moved in a separate process
+      from program logic (if the program ends, the sprites can
+      actually keep moving!). Playing sound, however, blocks program
+      logic until it's done playing (but supports up to three voices).
+
+    h2 Basics of Navigating and Input in Family Basic
+    p.
+      Instead of typing some unmemorable control-key combination,
+      there is a dedicated STOP key, above the RETURN key, for
+      terminating a running program.
+    p.
+      If you want to re-run or enter a modification of a line you’ve
+      already entered, you can simply use the cursor keys to return to
+      that line, make whatever modifications, and hit the RETURN key
+      again. You do not need to return the cursor to the end of the
+      line first; simply press RETURN anywhere on the line to enter
+      it.
+    p.
+      Typing overwrites other characters that are present on the line.
+      To create new space to insert characters, use the INS key. Note
+      that, like the Commodore 64, the INS key does not toggle between
+      and “insert” and an “overwrite” mode, but inserts a single space
+      on each keypress.
+    p.
+      If, when you type, you’re seeing weird Japanese characters
+      instead of normal ASCII characters, try hitting the KANA key.
+      There’s no indicator, and the key doesn’t physically lock down,
+      but the KANA key is a mode-locking key that toggles between
+      ASCII and Japanese katakana characters. While in katakana mode,
+      the GRPH key may also be used together with the top row of keys
+      (only) to generate certain box-drawing characters that may be
+      used in program listings to draw boxes out of characters. Aside
+      from toggling the KANA key, you can also type Control-W to enter
+      ASCII mode (Control-V enters kana mode).
+    p.
+      If, on the other hand, the whole screen looks full of garbled
+      images, try typing Control-D, which restores the default
+      character set for the screen, turns off sprite display, and
+      restores the default color palette.
+    p.
+      In general, if the screen seems to be in an abnormal state
+      (garbled screen, weird colors, cursor not showing/not responding
+      to input, character sprites displayed), try (1) pressing the
+      STOP key, (2) typing Control-D, and then (3) holding SHIFT while
+      typing the CLR/HOME key.
+    p.
+      When typing over existing on-screen text, Control-E or Control-Z
+      may be useful: Control-E erases from the cursor to end-of-line,
+      Control-Z erases to end-of-screen.
+
+    h2 Particulars of Family Basic Programming
+    p.
+      #[b Integer BASIC.] Family Basic is an integer BASIC - all
+      numeric variables are calculated using 16-bit integer math. No
+      floating point/decimal support, and any fractional portion of
+      the result of a division, is discarded.
+    p.
+      #[b Two-char significance.] As with many other implementations
+      of BASIC for home computers, variable names in Famibe are only
+      distinguished by the first two characters of their name.
+      Additional characters may be used, but only the first two
+      actually identify the variable.
+    p.
+      #[b NEXT only branches for the current innermost loop.] This
+      is probably the most cumbersome point for porting BASIC programs
+      from other systems: the NEXT keyword does not accept an optional
+      index variable after it - only NEXT by itself may be used, not
+      (e.g.) NEXT J. It may therefore be necessary in some cases to
+      rewrite inner loops as explicit increment &amp; GOTO/IF
+      combinations.
+    p.
+      #[b Strings limited to 31 chars!] String values - whether in
+      literal form or created via concatenation, may not exceed 31
+      characters. The largest impact of this, especially when porting
+      other BASIC programs, is that some PRINT statements with a
+      single string argument may need to have that argument broken up
+      into multiple strings with a semicolon separator: PRINT "HELLO
+      "; "WORLD"
+    p.
+      #[b Hexadecimal support.] Hexadecimal numeric values may be
+      specified via the format &amp;H<i>XX</i>.
+    p.
+      #[b THEN encompasses colon-separated statements.] As with
+      Microsoft-based BASICs, but unlike, say, Woz’s Integer BASIC,
+      the THEN keyword will include all the rest of the line,
+      including colon-separated statements, as the
+      conditionally-executed body of the IF statement.
+    p.
+      #[b Bitwise/logical operators.] Since some BASIC
+      implementations lack them, it’s useful to note that Famibe
+      supports bitwise/logical operators AND, OR, NOT, and XOR.
+    p.
+      #[b Machine code calls.] This BASIC is capable of exceeding
+      its own considerable limitations with a CALL command.
+    p.
+      #[b No lowercase characters.]
+    p.
+      #[b Save/load programs.] You can save a single program to an
+      AA battery-backed memory (but be careful not to jostle the
+      cartridge while flipping the backup switch!), or you can save
+      the program listing as an audio signal to a mono cassette
+      recorder.
+    p.
+      Contrary to some peoples’ claims, a proprietary Nintendo Data
+      Recorder cassette deck is not required, and early versions of
+      the manual note that any  monaural cassette deck (“such as a
+      Sharp QT-10”) may be used for the purpose.
+    p.
+      Also contrary to some claims, the Famicom Disk System may not be
+      used to save or load programs with Family Basic. Both the
+      Famicom Disk System and the Family Basic cartridge occupy the
+      cartridge slot in order to function, and Famicom Disk System
+      disks also lack a filesystem for storing multiple files, and
+      lack random-access capabilities (because of the way the data is
+      stored as a single spiral).
+    p.
+      #[b Save/load data from cartridges!] A handful of games
+      supported creating user levels and saving them to tape using the
+      Family Basic interface to the cassette recorder. Excitebike,
+      Wrecking Crew, and Loderunner are among the games to support
+      this feature.

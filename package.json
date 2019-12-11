@@ -1,0 +1,13 @@
+{
+  "name": "famibe-website",
+  "version": "1.0.0",
+  "description": "Micah's Family Basic Website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Micah Cowan <micah@addictivecode.org>",
+  "devDependencies": {
+    "pug": "^2.0.4",
+    "sass": "^1.23.7"
+  }
+}
