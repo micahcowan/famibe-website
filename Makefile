@@ -6,8 +6,8 @@ all: \
 	html-out/style/famibe.css \
 	html-out/welcome-to-famibe.html
 
-html-out/style/%.css: sass-in/%.sass
+html-out/style/%.css: sass-in/%.sass Makefile
 	sass $< $@
 
-html-out/%.html: pug-in/%.pug
-	scripts/mkpug.js $< $@
+html-out/%.html: pug-in/%.pug Makefile
+	pug -P < $< > $@ || { rm -f $@; exit 1; }
