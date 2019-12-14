@@ -15,7 +15,7 @@ html-out/style/%.sass: sass-in/%.sass Makefile packages-installed.stamp
 	cp $< $@
 
 html-out/%.html: pug-in/%.pug Makefile packages-installed.stamp
-	pug -P < $< > $@ || { rm -f $@; exit 1; }
+	sourceFile='$<' pug --basedir pug-in -P < $< > $@ || { rm -f $@; exit 1; }
 
 packages-installed.stamp: package.json package-lock.json
 	npm install
