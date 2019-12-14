@@ -1,12 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans&display=swap)
 
+$famicom-red: #800
+$famicom-cream: #fed
+$famicom-bright: #ffe
+
 html
   position: relative
   font-family: 'Open Sans', 'Helvetica', sans-serif
 
 body
   margin: 0
-  background-color: #fed
+  background-color: $famicom-cream
   position: relative
 
 body > *
@@ -20,13 +24,13 @@ p
 q
   quotes: "\201C" "\201D"
 
-h1, h2, h3, h4, h5, h6
-  color: #800
+h1, h2, h3, h4, h5, h6, b
+  color: $famicom-red
 
 h1
   font-family: 'Comfortaa', cursive
   text-align: center
-  background-color: #ffe
+  background-color: $famicom-bright
 
 h1 
   font-size: 3rem
