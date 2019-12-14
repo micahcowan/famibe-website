@@ -1,5 +1,7 @@
 .SUFFIXES: .css .sass .pug .html
 
+SHELL=bash # for set -o pipefail
+
 export PATH:=node_modules/.bin:$(PATH)
 
 # filter to fix up quotes (just right single quotes, for now. filter is dumb.)
