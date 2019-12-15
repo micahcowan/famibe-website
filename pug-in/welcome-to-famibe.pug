@@ -8,18 +8,18 @@ block content
   p.
     Family Basic is an add-on for the Japanese Family Computer, or
     #[q Famicom] (Japanese version of the NES), consisting of an
-    attachable keyboard, and a cartridge containing the BASIC
+    attachable keyboard, and a cartridge containing the #[+basic]
     programming language, developed by Nintendo in collaboration
     with Sharp and Hudson (Family Basic identifies itself as
     NS-HUBASIC at start-up).
   p.
-    Maybe having BASIC and a keyboard entitles the Famicom to its
+    Maybe having #[+basic] and a keyboard entitles the Famicom to its
     name of #[q Family Computer]?
   p.
     While language limitations, and very limited memory (2k or 4k,
     including program listing and data) make Famibe poorly suited
     for writing, say, a text adventure (as one might normally be
-    inclined to do with a BASIC programming environment), it
+    inclined to do with a #[+basic] programming environment), it
     compensates with the ability to access the Famicom's graphics
     hardware to edit and display tiled background graphics, and
     control animated sprites, which are moved in a separate process
@@ -30,92 +30,98 @@ block content
   h2 Basics of Navigating and Input in Family Basic
   p.
     Instead of typing some unmemorable control-key combination,
-    there is a dedicated STOP key, above the RETURN key, for
-    terminating a running program.
+    there is a dedicated #[+keyname STOP] key, above the
+    #[+keyname RETURN] key, for terminating a running program.
   p.
     If you want to re-run or enter a modification of a line you've
     already entered, you can simply use the cursor keys to return to
-    that line, make whatever modifications, and hit the RETURN key
-    again. You do not need to return the cursor to the end of the
-    line first; simply press RETURN anywhere on the line to enter
-    it.
+    that line, make whatever modifications, and hit the
+    #[+keyname RETURN] key again. You do not need to return the cursor
+    to the end of the line first; simply press #[+keyname RETURN]
+    anywhere on the line to enter it.
   p.
     Typing overwrites other characters that are present on the line.
-    To create new space to insert characters, use the INS key. Note
-    that, like the Commodore 64, the INS key does not toggle between
+    To create new space to insert characters, use the
+    #[+keyname INS] key. Note
+    that, like the Commodore 64, the #[+keyname INS] key does not toggle between
     an #[q insert] and an #[q overwrite] mode, but inserts a single space
     on each keypress.
   p.
     If, when you type, you're seeing weird Japanese characters
-    instead of normal ASCII characters, try hitting the KANA key.
-    There's no indicator, and the key doesn't physically lock down,
-    but the KANA key is a mode-locking key that toggles between
-    ASCII and Japanese katakana characters. While in katakana mode,
-    the GRPH key may also be used together with the top row of keys
-    (only) to generate certain box-drawing characters that may be
-    used in program listings to draw boxes out of characters. Aside
-    from toggling the KANA key, you can also type Control-W to enter
-    ASCII mode (Control-V enters kana mode).
+    instead of normal ASCII characters, try hitting the
+    #[+keyname KANA] key.  There's no indicator, and the key doesn't
+    physically lock down,
+    but the #[+keyname KANA] key is a mode-locking key that toggles
+    between ASCII and Japanese katakana characters. While in katakana
+    mode, the #[+keyname GRPH] key may also be used together with the
+    top row of keys (only) to generate certain box-drawing characters
+    that may be used in program listings to draw boxes out of
+    characters. Aside from toggling the #[+keyname KANA] key, you can
+    also type #[+keyname CTR]+#[+keyname W] to enter ASCII mode
+    (#[+keyname CTR]+#[+keyname V] enters kana mode).
   p.
     If, on the other hand, the whole screen looks full of garbled
-    images, try typing Control-D, which restores the default
+    images, try typing #[+keyname CTR]+#[+keyname D], which restores the default
     character set for the screen, turns off sprite display, and
     restores the default color palette.
   p.
-    In general, if the screen seems to be in an abnormal state
-    (garbled screen, weird colors, cursor not showing/not responding
-    to input, character sprites displayed), try (1) pressing the
-    STOP key, (2) typing Control-D, and then (3) holding SHIFT while
-    typing the CLR/HOME key.
+    In general, if the screen seems to be in an abnormal state (garbled
+    screen, weird colors, cursor not showing/not responding to input,
+    character sprites displayed), try (1) pressing the
+    #[+keyname STOP] key, (2) typing #[+keyname CTR]+#[+keyname D], and
+    then (3) holding #[+keyname SHIFT] while typing the
+    #[+keyname CLR/HOME] key.
   p.
-    When typing over existing on-screen text, Control-E or Control-Z
-    may be useful: Control-E erases from the cursor to end-of-line,
-    Control-Z erases to end-of-screen.
+    When typing over existing on-screen text, #[+keyname CTR]+#[+keyname E]
+    or #[+keyname CTR]+#[+keyname Z] may be useful:
+    #[+keyname CTR]+#[+keyname E] erases from the cursor to end-of-line,
+    #[+keyname CTR]+#[+keyname Z] erases to end-of-screen.
 
   h2 Particulars of Family Basic Programming
   p.
-    #[b Integer BASIC.] Family Basic is an integer BASIC - all
+    #[b Integer #[+basic].] Family Basic is an integer #[+basic] - all
     numeric variables are calculated using 16-bit integer math. No
     floating point/decimal support, and any fractional portion of
     the result of a division, is discarded.
   p.
     #[b Two-char significance.] As with many other implementations
-    of BASIC for home computers, variable names in Famibe are only
+    of #[+basic] for home computers, variable names in Famibe are only
     distinguished by the first two characters of their name.
     Additional characters may be used, but only the first two
     actually identify the variable.
   p.
-    #[b NEXT only branches for the current innermost loop.] This
-    is probably the most cumbersome point for porting BASIC programs
-    from other systems: the NEXT keyword does not accept an optional
-    index variable after it - only NEXT by itself may be used, not
-    (e.g.) NEXT J. It may therefore be necessary in some cases to
-    rewrite inner loops as explicit increment &amp; GOTO/IF
-    combinations.
+    #[b NEXT only branches for the current innermost loop.]
+    This is probably the most cumbersome point for porting #[+basic]
+    programs from other systems: the #[+keyword NEXT] keyword does not
+    accept an optional index variable after it - only #[+keyword NEXT]
+    by itself may be used, not (e.g.) #[code NEXT J]. It may therefore be
+    necessary in some cases to rewrite inner loops as explicit increment
+    &amp; #[+keyword GOTO]/#[+keyword IF] combinations.
   p.
     #[b Strings limited to 31 chars!] String values - whether in
     literal form or created via concatenation, may not exceed 31
     characters. The largest impact of this, especially when porting
-    other BASIC programs, is that some PRINT statements with a
+    other #[+basic] programs, is that some #[+keyword PRINT] statements with a
     single string argument may need to have that argument broken up
-    into multiple strings with a semicolon separator: PRINT "HELLO
-    "; "WORLD"
+    into multiple strings with a semicolon separator:
+    #[code PRINT "HELLO "; "WORLD"]
   p.
     #[b Hexadecimal support.] Hexadecimal numeric values may be
-    specified via the format &amp;H<i>XX</i>.
+    specified via the format &amp;H<var>XX</var>.
   p.
     #[b THEN encompasses colon-separated statements.] As with
-    Microsoft-based BASICs, but unlike, say, Woz's Integer BASIC,
-    the THEN keyword will include all the rest of the line,
+    Microsoft-based BASICs, but unlike, say, Woz's Integer #[+basic],
+    the #[+keyword THEN] keyword will include all the rest of the line,
     including colon-separated statements, as the
     conditionally-executed body of the IF statement.
   p.
-    #[b Bitwise/logical operators.] Since some BASIC
+    #[b Bitwise/logical operators.] Since some #[+basic]
     implementations lack them, it's useful to note that Famibe
-    supports bitwise/logical operators AND, OR, NOT, and XOR.
+    supports bitwise/logical operators #[+keyword AND], #[+keyword OR],
+    #[+keyword NOT], and #[+keyword XOR].
   p.
-    #[b Machine code calls.] This BASIC is capable of exceeding
-    its own considerable limitations with a CALL command.
+    #[b Machine code calls.] This #[+basic] is capable of exceeding
+    its own considerable limitations with a #[+keyword CALL] command.
   p.
     #[b No lowercase characters.]
   p.

@@ -2,6 +2,8 @@
 
 $famicom-red: #800
 $famicom-cream: #fed
+$famicom-light-cream: #fff8e7
+$famicom-dark-cream: #dcb
 $famicom-bright: #ffe
 
 html
@@ -67,6 +69,26 @@ h2
   /* width: 40em; */
   width: 38rem
   text-transform: uppercase
+
+.keyname//, .keyword
+  display: inline-block
+  background-color: $famicom-light-cream
+  padding-left: 0.1em
+  padding-right: 0.1em
+  border: solid 1px $famicom-dark-cream
+
+.keyname
+  border-radius: 0.3em
+  font-size: 0.9em
+
+code
+  //font-family: Courier New, Courier, monospace
+  //font-family: monospace
+  font-size: 0.8em
+
+.sc
+  // font-variant: small-caps - looks like crap in chosen font.
+  // font-size: 0.9em - not loving this either. Just keeping the class around.
 
 @media print
     .linkBar
